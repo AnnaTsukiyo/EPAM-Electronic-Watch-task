@@ -6,11 +6,9 @@ public class ElectronicWatch {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int seconds = scanner.nextInt();
-        try {
-            System.out.println(DateTimeFormatter.ofPattern("H:mm:ss").format(LocalTime.ofSecondOfDay(seconds % (24 * 60 * 60))));
-        } catch (DateTimeException e) {
-            e.printStackTrace();
-            System.out.println("Invalid value");
-        }
+        int h = seconds / 3600;
+        int m = (seconds % 3600) / 60;
+        int s = seconds % 60;
+        System.out.printf("%02d:%02d:%02d", h, m, s);
     }
 }
